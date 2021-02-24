@@ -84,6 +84,10 @@ $app->configure('services');
 //     'auth' => App\Http\Middleware\Authenticate::class,
 // ]);
 
+ $app->routeMiddleware([
+     'throttle' => App\Http\Middleware\ThrottleRequests::class,
+ ]);
+
 /*
 |--------------------------------------------------------------------------
 | Register Service Providers
@@ -128,6 +132,7 @@ $app->router->group([
 
 $app->router->group([
     'prefix'    => 'api',
+    'middleware' => 'throttle:30,5',
     'namespace' => 'App\Http\Controllers\Api',
 ], function ($router) {
     require __DIR__ . '/../routes/api.php';
