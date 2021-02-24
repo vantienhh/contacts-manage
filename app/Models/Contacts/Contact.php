@@ -2,6 +2,7 @@
 
 namespace App\Models\Contacts;
 
+use Database\Factories\ContactFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -31,6 +32,11 @@ class Contact extends Model
     protected $fillable = [
         'name', 'description', 'subscribers_count'
     ];
+
+    protected static function newFactory()
+    {
+        return ContactFactory::new();
+    }
 
     const REDIS_CONTACT_SUBSCRIBERS_COUNT = 'subscribersCount';
 

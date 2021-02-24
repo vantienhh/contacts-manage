@@ -9,7 +9,7 @@
         "aws/aws-sdk-php": "^3.173",
         "illuminate/mail": "^8.29",
         "illuminate/redis": "^8.29",
-        "laravel/lumen-framework": "^8..0",
+        "laravel/lumen-framework": "^8.0",
         "league/fractal": "^0.19.2",
         "predis/predis": "^1.1"
     },
