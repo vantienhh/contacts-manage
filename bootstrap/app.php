@@ -132,7 +132,7 @@ $app->router->group([
 
 $app->router->group([
     'prefix'    => 'api',
-    'middleware' => 'throttle:30,5',
+    'middleware' => 'throttle:10,5',
     'namespace' => 'App\Http\Controllers\Api',
 ], function ($router) {
     require __DIR__ . '/../routes/api.php';

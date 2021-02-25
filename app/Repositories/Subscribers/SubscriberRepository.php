@@ -6,22 +6,18 @@ use App\Mails\CreateSubscriber;
 use App\Models\Contacts\Contact;
 use App\Models\Subscribers\Subscriber;
 use App\Repositories\BaseRepository;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Mail;
 
 class SubscriberRepository extends BaseRepository implements SubscriberRepositoryInterface
 {
-    /**
-     * @var Subscriber
-     */
-    protected $model;
-
     public function __construct(Subscriber $subscriber)
     {
-        $this->setModel($subscriber);
+        parent::__construct($subscriber);
     }
 
-    public function store(array $data)
+    public function store(array $data): Model|static
     {
         $data = parent::store($data);
 
@@ -31,5 +27,4 @@ class SubscriberRepository extends BaseRepository implements SubscriberRepositor
 
         return $data;
     }
-
 }

@@ -7,14 +7,9 @@ use App\Repositories\BaseRepository;
 
 class ContactRepository extends BaseRepository implements ContactRepositoryInterface
 {
-    /**
-     * @var Contact
-     */
-    protected $model;
-
     public function __construct(Contact $contact)
     {
-        $this->setModel($contact);
+        parent::__construct($contact);
     }
 
     public function incrementSubscribersCount($id, $count): void {
