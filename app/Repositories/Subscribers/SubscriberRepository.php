@@ -27,7 +27,7 @@ class SubscriberRepository extends BaseRepository implements SubscriberRepositor
 
         // Lưu vào redis để schedule cập nhật lại subscriberCount của contact sau
         Redis::hIncrBy(Contact::REDIS_CONTACT_SUBSCRIBERS_COUNT, $data['contact_id'], 1);
-        Mail::to('tienhh1994@gmail.com')->queue(new CreateSubscriber());
+        Mail::to($data->email)->queue(new CreateSubscriber());
 
         return $data;
     }
